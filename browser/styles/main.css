@@ -1,0 +1,35 @@
+#mainContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  height: 500px;
+  width: 50%;
+  float: left;
+}
+.container textarea {
+  width: 100%;
+  min-height: 500px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+.json-list-item .json-list {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+.json-list-item .array {
+  background-color: #D0D0E0;
+}
+.json-list-item .property {
+  color: #A55454;
+}
+.json-list-item .object {
+  background-color: #A4B5A4;
+}
+.json-list {
+  margin-left: 15px;
+}

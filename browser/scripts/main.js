@@ -1,17 +1,16 @@
-var jsonLint = require('jsonLint');
-(function () {
-	var vm = {
-	    rawJson : ko.observable(""),
-		formattedJson : ko.observable(""),
-	};
+'use babel';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import List from '../views/list.jsx';
+import RawText from '../views/rawText.jsx';
+import InspectJson from '../views/inspect.jsx';
+ReactDOM.render(<div>
+    <RawText/>
+    </div>, document.getElementById('rawTextContainer'));
 
-    vm.rawJson.subscribe(function (val) {
-    	var json = jsonLint.parse(val);
-		for(j in json){
-			console.log(json[j]);
-		}
-		vm.formattedJson(val);
-  		
-  	})
-  	ko.applyBindings(vm);
-})();
+ReactDOM.render(<div>
+    <List />
+    </div>, document.getElementById('parsedJsonContainer'));
+ReactDOM.render(<div>
+    <InspectJson />
+    </div>, document.getElementById('jsonInspectContainer'));

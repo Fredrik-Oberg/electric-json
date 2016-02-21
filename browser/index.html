@@ -1,33 +1,20 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello World!</title>
-     <script src="scripts/loader.js"></script>
-     <link href="styles/main.less" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <div>
-      <textarea data-bind="textInput : rawJson">
-
-      </textarea>
-    </div>
-    <div data-bind="text : formattedJson">
-    	
-    </div>
-    We are using io.js <script>document.write(process.version)</script>
-    and Electron <script>document.write(process.versions['electron'])</script>.
-  
-     <script src="scripts/main.js"></script>
-
-  <script>
-  
-  </script>
-  </body>
+    <head>
+        <title>Electric Json</title>
+        <script>
+            // install babel hooks in the renderer process
+            require('./scripts/loader');
+        </script>
+        <link href="styles/main.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="mainContainer">
+            <div id="rawTextContainer" class="container"></div>
+            <div id="parsedJsonContainer" class="container"></div>
+        </div>
+            <div id="jsonInspectContainer"></div>        
+        <script>require('./scripts/main');</script>
+    </body>
 </html>
-
-<style>
-	div{
-		background-color: #bada55;
-	}
-</style>

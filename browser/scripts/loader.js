@@ -1,5 +1,2 @@
-var ko = require('knockout');
-
-
-
-	
+"use strict";
+require('babel-register');
