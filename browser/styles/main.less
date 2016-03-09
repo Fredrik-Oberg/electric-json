@@ -1,4 +1,15 @@
+@import (less) "_variables.less";
+
 @container-min-height : 500px;
+
+
+body{
+color : @text-color;    
+background-color: @app-background-color;
+font-family: @font-family;
+font-size:13px;
+}
+
 #mainContainer{
     display: flex;
     justify-content:space-between;
@@ -7,32 +18,114 @@
 .container{
     height: @container-min-height;
     width: 50%;
-    float:left;
-    textarea {
+    border: 3px solid @color4;
+}
+#rawTextContainer{
+        textarea {
         width: 100%;
         min-height: @container-min-height;
         -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
         -moz-box-sizing: border-box;    /* Firefox, other Gecko */
         box-sizing: border-box;         /* Opera/IE 8+ */
+        
+        font-family: Tahoma, sans-serif;
+        background-color: @color3;
+        resize: none;
+
    }
 }
+::-webkit-scrollbar{color:black; }
 
-.json-list-item { 
-    .json-list{
-        margin-top: 10px;
-        margin-left: 25px;
+// ::-webkit-scrollbar-button       { /* 2 */ }
+// ::-webkit-scrollbar-track        { /* 3 */ }
+// ::-webkit-scrollbar-track-piece  { /* 4 */ }
+// ::-webkit-scrollbar-thumb        { /* 5 */ }
+// ::-webkit-scrollbar-corner       { /* 6 */ }
+// ::-webkit-resizer                { /* 7 */ }
+::-webkit-scrollbar {
+width: 10px;
+}
+::-webkit-scrollbar-track-piece  {
+background-color: @color5;
+}
+::-webkit-scrollbar-thumb:vertical {
+height: 30px;
+background-color: @color2;
+}
+::-webkit-scrollbar-thumb { background-color: #000000; -webkit-border-radius: 1ex; }
+#parsedJsonContainer{
+    overflow-y: auto;
+    background-color: @color3;
+    
+    .main-node{
+        margin-left:0.8rem;
     }
-    .array{
-    background-color: #D0D0E0;
-    }
-    .property{
-        color:#A55454;
-    }
+    .json-list-item { 
+        transition: all .25s ease-out;
+    
+        .json-list{
+            border-left: 1px dotted black;
+            padding-left: 0.8rem;
+            overflow: hidden;
+            &:first-child{
+                margin-top:0px;
+                margin-left:0px;
+            }
+        }
+        .array{
+            color:@color5;
+        }
+        .property{
+            color:#111;
+        }
 
-    .object{
-        background-color: #A4B5A4;
+        .object{
+            color:@color2;
+        }
+    }
+    .toggle-section{
+        cursor: pointer;
+        
+        transition: all .25s ease-out;
+        &.up{
+            & + .json-list-item *{
+                height: initial;
+            }
+        }
+        &.down{
+            & +.json-list-item *{
+                height: 0px;
+            }
+        
+        }
+     
+    }
+    .toggler{
+        cursor: pointer;
+        margin-right: 5px;
+        margin-left: -15px;
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: #716767;
     }
 }
-.json-list {
-    margin-left: 15px;
+#jsonInspectContainer{
+    margin-top: 10px;
+    background-color: #2F2F2F;
+    color:#fff;
+    
+     table,tbody{
+        margin-left:20px;
+        border-collapse: inherit;
+        border-style: double;
+        border-width: 1px;
+        border-spacing: 2px;
+        border-style: outset;
+        border-collapse: separate;
+        td{
+            border-width: 1px;
+            padding: 1px;
+            border-style: inset;
+        }
+    }
 }

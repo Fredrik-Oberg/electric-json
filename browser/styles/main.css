@@ -1,3 +1,9 @@
+body {
+  color: #7d868c;
+  background-color: #25282e;
+  font-family: 'Lucida Grande', 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
 #mainContainer {
   display: flex;
   justify-content: space-between;
@@ -5,9 +11,9 @@
 .container {
   height: 500px;
   width: 50%;
-  float: left;
+  border: 3px solid #b3b6b7;
 }
-.container textarea {
+#rawTextContainer textarea {
   width: 100%;
   min-height: 500px;
   -webkit-box-sizing: border-box;
@@ -16,20 +22,91 @@
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */
+  font-family: Tahoma, sans-serif;
+  background-color: #f7f3e3;
+  resize: none;
 }
-.json-list-item .json-list {
+::-webkit-scrollbar {
+  color: black;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #3e885b;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #d36135;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  -webkit-border-radius: 1ex;
+}
+#parsedJsonContainer {
+  overflow-y: auto;
+  background-color: #f7f3e3;
+}
+#parsedJsonContainer .main-node {
+  margin-left: 0.8rem;
+}
+#parsedJsonContainer .json-list-item {
+  transition: all 0.25s ease-out;
+}
+#parsedJsonContainer .json-list-item .json-list {
+  border-left: 1px dotted black;
+  padding-left: 0.8rem;
+  overflow: hidden;
+}
+#parsedJsonContainer .json-list-item .json-list:first-child {
+  margin-top: 0px;
+  margin-left: 0px;
+}
+#parsedJsonContainer .json-list-item .array {
+  color: #3e885b;
+}
+#parsedJsonContainer .json-list-item .property {
+  color: #111;
+}
+#parsedJsonContainer .json-list-item .object {
+  color: #d36135;
+}
+#parsedJsonContainer .toggle-section {
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+}
+#parsedJsonContainer .toggle-section.up + .json-list-item * {
+  height: initial;
+}
+#parsedJsonContainer .toggle-section.down + .json-list-item * {
+  height: 0px;
+}
+#parsedJsonContainer .toggler {
+  cursor: pointer;
+  margin-right: 5px;
+  margin-left: -15px;
+  font-size: 1.3em;
+  font-weight: bolder;
+  color: #716767;
+}
+#jsonInspectContainer {
   margin-top: 10px;
-  margin-left: 25px;
+  background-color: #2F2F2F;
+  color: #fff;
 }
-.json-list-item .array {
-  background-color: #D0D0E0;
+#jsonInspectContainer table,
+#jsonInspectContainer tbody {
+  margin-left: 20px;
+  border-collapse: inherit;
+  border-style: double;
+  border-width: 1px;
+  border-spacing: 2px;
+  border-style: outset;
+  border-collapse: separate;
 }
-.json-list-item .property {
-  color: #A55454;
-}
-.json-list-item .object {
-  background-color: #A4B5A4;
-}
-.json-list {
-  margin-left: 15px;
+#jsonInspectContainer table td,
+#jsonInspectContainer tbody td {
+  border-width: 1px;
+  padding: 1px;
+  border-style: inset;
 }
