@@ -9,21 +9,71 @@ class IterableItemClass extends React.Component {
         super(props);            
          this.state = {
             children : this.props.data.childList, 
-            length : this.props.data.childList.length, 
+            length : this.props.data.childList.length,    
+            toggleState : true         
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSectionToggle = this.handleSectionToggle.bind(this);
     }
     handleClick(e){
         e.stopPropagation();
-        console.log(this.props.data);
+        JsonStore.addEditListener(this.handleChange);                
         selectJsonNode(this.props.data);
+    }
+    handleChange(e) {
+        var node = JsonStore.getJsonNode();
+        this.setState({data : node});
+    }
+    handleSectionToggle(e){
+        e.stopPropagation();
+        this.setState({ toggleState: !this.state.toggleState });
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state.results !== nextState.results
+        return this.state !== nextState
+    }
+    toggleState(){
+        return this.state.toggleState ? "up" : "down"
     }
 }
 
+class ToggleSectionItem extends React.Component{
+     constructor(props) {
+        super(props);            
+        this.state = {  
+            toggleState : true,
+            text : this.props.objectName + " "+ this.props.childLength,
+            toggler : "+"
+        };
+        this.handleClick = this.handleClick.bind(this);
+        
+    }
+    handleClick(e){
+        e.stopPropagation();
+        this.setState({ toggleState: !this.state.toggleState });
+    }
+
+     shouldComponentUpdate(nextProps, nextState) {
+        return this.state.toggleState !== nextState.toggleState
+    }
+
+    toggleState(){
+        //TODO Fix classnames
+        return this.state.toggleState ? "toggle-section up" : "toggle-section down";
+    }
+    toggler(){
+        return this.state.toggleState ? "-" : "+";
+    }
+    render(){
+        return <span className={this.toggleState()}>
+            <i className="toggler" onClick={this.handleClick}>{this.toggler()}</i>
+               {this.state.text}
+        </span> 
+        
+           
+    }
+}
 
 class ObjectItem extends IterableItemClass {
     constructor(props) {
@@ -31,7 +81,7 @@ class ObjectItem extends IterableItemClass {
     }
     render() {
         return <div className="json-list object" onClick={this.handleClick}>
-        Object items: {this.state.length} 
+        <ToggleSectionItem objectName="Object" childLength={this.state.length} />
         <ListItem key={0} data={this.state.children} /></div>               
     }
 }
@@ -42,28 +92,20 @@ class ArrayItem extends IterableItemClass {
     }
     render() {
         return <div className="json-list array" onClick={this.handleClick}>
-        Array items: {this.state.length}
+        <ToggleSectionItem objectName="Array" childLength={this.state.length} />
         <ListItem key={0} data={this.state.children} /></div>       
     }
 }
 
 class PropertyItem extends React.Component {
     constructor(props) {
-        super(props);            
-        this.state = {
-            type : this.props.data.type, 
-            property : this.props.data.property, 
-            value : this.props.data.val, 
-        };
-        this.handleClick = this.handleClick.bind(this);
-        this.classes = "json-list-item property property-type-" + this.state.type;      
+        super(props);
+        this.classes = "json-list-item property property-type-" + this.props.data.type;      
     }
-    handleClick(e){
-        console.log(e.target.value);
-    }
+
     render() {
-        return <div onClick={this.handleClick} className={this.classes}>
-        <span>{this.state.property}</span> - <span>{this.state.value}</span> </div>
+        return <div className={this.classes}>
+        <span>{this.props.data.property}</span> - <span>{this.props.data.val}</span> </div>
     }
 }
        

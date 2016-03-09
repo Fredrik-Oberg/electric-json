@@ -5,6 +5,8 @@ export const ActionConstants = keyMirror({
     SERVER_ACTION: null,
     NEW_JSON:null,
     INSPECT_JSON:null,
+    CHANGE_JSON:null,
+    EDIT_EVENT:null,
     CHANGE_EVENT:null
 });
 export const JsonConstants = keyMirror({

@@ -17,3 +17,9 @@ export function selectJsonNode (node) {
         jsonNode: () => { return node }
     })
 }
+export function mutateJsonNode (node) {
+    AppDispatcher.handleViewAction({
+        actionType: Constants.CHANGE_JSON,
+        jsonNode: () => { return node }
+    })
+}

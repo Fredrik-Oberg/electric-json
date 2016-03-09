@@ -10,15 +10,19 @@ let _store = {
 };
 
 class JsonStoreClass extends EventEmitter{
-
     addChangeListener(cb) {
         this.on(Constants.CHANGE_EVENT, cb);
     }
-  
     removeChangeListener(cb) {
         this.removeListener(Constants.CHANGE_EVENT, cb);
     }
-
+    addEditListener(cb) {
+        this.removeAllListeners(Constants.EDIT_EVENT);
+        this.on(Constants.EDIT_EVENT, cb);
+    }
+    removeEditListener(cb) {
+        this.removeListener(Constants.EDIT_EVENT, cb);
+    }
     getRawText() {
         return _store.rawText;
     }
@@ -27,6 +31,9 @@ class JsonStoreClass extends EventEmitter{
     }
     getJsonNode() {
         return _store.jsonNode;
+    }
+    setJsonNode(node){
+        _store.jsonNode = node;
     }
 }
 
@@ -48,13 +55,17 @@ AppDispatcher.register(function(payload) {
             JsonStore.emit(Constants.CHANGE_EVENT);
             break;
             
-       case Constants.INSPECT_JSON:
-            // Add the data defined in the TodoActions
-            // which the View will pass as a payload
+        case Constants.INSPECT_JSON:
             _store.jsonNode = payload.action.jsonNode();
             JsonStore.emit(Constants.CHANGE_EVENT);
             break;
-
+            
+        case Constants.CHANGE_JSON:
+            _store.jsonNode = payload.action.jsonNode();
+            JsonStore.emit(Constants.EDIT_EVENT);
+            break;
+            
+            
         default:
             return true;
     }
