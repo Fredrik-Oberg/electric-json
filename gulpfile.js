@@ -3,7 +3,10 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var less = require('gulp-less');
 var path = require('path');
+var filter = require('gulp-filter');
 var debug = require('gulp-debug');
+var livereload = require('gulp-livereload');
+
 gulp.task('compile-less', function () {
     return gulp.src("./browser/styles/*.less")
     .pipe(debug({title: 'src:'}))
@@ -13,11 +16,15 @@ gulp.task('compile-less', function () {
             this.emit('end');
         }
         }))
+        .pipe(filter(['**/*.less', '!**/_*.less']))
         .pipe(less())
-        .pipe(gulp.dest('./browser/styles/'));
+        .pipe(gulp.dest('./browser/styles/'))
+        .pipe(livereload({ start: true }));
+
 });
 
 gulp.task('watch-less', function () {
+    livereload.listen();
     gulp.watch('./browser/styles/*.less', ['compile-less']);
 });
 
