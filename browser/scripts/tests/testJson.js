@@ -13,6 +13,13 @@ class TestJsonClass {
                                 ,{"item": 3}
                                 ]
                 ,arrayOfIntegers: [1,2,3,4,5]
+                ,bigArrayOfMixed: [{"item": [1.1, 1.2, [{"item": [1.1, 1.2]}
+                                ,{"item": 2}
+                                ,{"item": 3}
+                                ,2,3,4]]},
+                                ,{"item": 2}
+                                ,{"item": 3}
+                                ,2,3,4]
             };
     }
     get testJson() {
