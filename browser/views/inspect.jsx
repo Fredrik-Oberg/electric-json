@@ -132,7 +132,12 @@ class TableDataInput extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);      
     }    
-      handleChange(e){
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            value : nextProps.node
+        })
+    }
+    handleChange(e){
           var val = e.target.value;
           this.setState({
               value : val
@@ -142,7 +147,7 @@ class TableDataInput extends React.Component {
       this.onClick(this.state.value);   
     }
        shouldComponentUpdate(nextProps, nextState) {
-        return this.state.value !== nextProps.node
+        return this.state.value !== nextState.value
     }
     render() {
         return <td><input type="text" value={this.state.value} onChange={this.handleChange}/><input type="button" value="save" onClick={this.handleClick}/></td>
