@@ -30,9 +30,7 @@ class IterableItemClass extends React.Component {
         this.setState({ toggleState: !this.state.toggleState });
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.state !== nextState
-    }
+
     toggleState(){
         return this.state.toggleState ? "up" : "down"
     }
