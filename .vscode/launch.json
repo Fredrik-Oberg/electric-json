@@ -37,13 +37,13 @@
 		{
             "name": "Launch Electron App",
             "type": "node",
-            "program": "app/bootstrapper.js", // important
+            "program": "${workspaceRoot}/app/bootstrapper.js", // important
             "stopOnEntry": false,
             "args": [],
             "preLaunchTask": "default",            
-            "cwd": ".",
+            "cwd": "${workspaceRoot}",
             // next line is very important
-            "runtimeExecutable": "node_modules/electron-prebuilt/dist/electron.exe",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/electron-prebuilt/dist/electron.exe",
             "runtimeArguments": [],
             "env": { }, 
             "sourceMaps": false
@@ -51,7 +51,7 @@
         {
             "name": "Debug Gulp ",
             "type": "node",
-            "program": "./node_modules/gulp/index.js", // important
+            "program": "${workspaceRoot}/node_modules/gulp/index.js", // important
             "stopOnEntry": true,
             "args": [],
             "cwd": ".",
