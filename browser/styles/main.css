@@ -15,7 +15,7 @@ body {
   width: 50%;
   border: 3px solid #7396A0;
 }
-#rawTextContainer textarea {
+#textEditor textarea {
   width: 100%;
   min-height: 500px;
   box-sizing: border-box;
@@ -23,55 +23,55 @@ body {
   background-color: #B1C8C2;
   resize: none;
 }
-#parsedJsonContainer {
+#treeView {
   overflow-y: auto;
   background-color: #B1C8C2;
 }
-#parsedJsonContainer .json-list-item {
+#treeView .json-list-item {
   transition: all 0.25s ease-out;
 }
-#parsedJsonContainer .json-list-item .json-list {
+#treeView .json-list-item .json-list {
   border-left: 1px dotted #7396A0;
   padding-left: 0.8rem;
   overflow: hidden;
 }
-#parsedJsonContainer .json-list-item .json-list:first-child {
+#treeView .json-list-item .json-list:first-child {
   margin-top: 0px;
   margin-left: 0px;
 }
-#parsedJsonContainer .json-list-item .json-list.hover {
+#treeView .json-list-item .json-list.hover {
   background: #97B1B9;
 }
-#parsedJsonContainer .json-list-item .array {
+#treeView .json-list-item .array {
   color: #5B2E57;
 }
-#parsedJsonContainer .json-list-item .property {
+#treeView .json-list-item .property {
   color: #383838;
 }
-#parsedJsonContainer .json-list-item .object {
+#treeView .json-list-item .object {
   color: #5B5693;
 }
-#parsedJsonContainer .toggle-section {
+#treeView .toggle-section {
   cursor: pointer;
   transition: all 0.25s ease-out;
 }
-#parsedJsonContainer .toggle-section.up + .json-list-item * {
+#treeView .toggle-section.up + .json-list-item * {
   height: initial;
 }
-#parsedJsonContainer .toggle-section.down + .json-list-item * {
+#treeView .toggle-section.down + .json-list-item * {
   height: 0px;
 }
-#parsedJsonContainer .toggle-section .fa {
+#treeView .toggle-section .fa {
   cursor: pointer;
   margin-right: 5px;
   margin-left: -10px;
   font-size: 1em;
   color: #9C4E3F;
 }
-#jsonInspectContainer {
+#inspectorContainer {
   background-color: #B1C8C2;
 }
-#jsonInspectContainer tbody {
+#inspectorContainer tbody {
   margin-left: 5px;
   border-width: 1px;
   border-spacing: 2px;
@@ -80,7 +80,7 @@ body {
   border-left: 1px solid black;
   border-bottom: 1px solid black;
 }
-#jsonInspectContainer tbody td {
+#inspectorContainer tbody td {
   border-width: 1px;
   padding: 1px;
   border-style: none;
