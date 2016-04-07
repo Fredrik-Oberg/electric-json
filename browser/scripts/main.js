@@ -1,15 +1,15 @@
 'use babel';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from '../views/treeView/list.jsx';
-import RawText from '../views/editor/rawText.jsx';
-import InspectJson from '../views/inspector/inspect.jsx';
+import TreeView from '../views/treeView/treeView.jsx';
+import TextEditor from '../views/textEditor/textEditor.jsx';
+import InspectJson from '../views/inspector/inspector.jsx';
 ReactDOM.render(<div>
-    <RawText/>
+    <TextEditor/>
     </div>, document.getElementById('rawTextContainer'));
 
 ReactDOM.render(<div>
-    <List />
+    <TreeView />
     </div>, document.getElementById('parsedJsonContainer'));
 ReactDOM.render(<div>
     <InspectJson />

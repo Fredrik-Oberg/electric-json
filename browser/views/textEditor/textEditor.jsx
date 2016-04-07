@@ -3,7 +3,7 @@ import React from 'react';
 import JsonStore from '../../scripts/stores/jsonStore';
 import {addRawText} from '../../scripts/actions/jsonActions';
 
-export default class RawText extends React.Component {
+export default class TextEditor extends React.Component {
     constructor(props) {
         super(props);
         this.state = {rawText: JsonStore.getRawText()};
