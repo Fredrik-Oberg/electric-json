@@ -1,8 +1,8 @@
 'use babel';
 import React from 'react';
 import Update from 'react/lib/update'
-import JsonStore from '../scripts/stores/jsonStore';
-import {mutateJsonNode} from "../scripts/actions/jsonActions";
+import JsonStore from '../../scripts/stores/jsonStore';
+import {mutateJsonNode} from "../../scripts/actions/jsonActions";
 
 export default class InspectJson extends React.Component {
     constructor(props) {
@@ -53,14 +53,7 @@ class Table extends React.Component {
     }
    
     render() {
-        return <table>
-            <thead>
-                <tr>
-                    <td>Type</td>
-                    <td>Property</td>
-                    <td>Value</td>
-                </tr>
-            </thead>           
+        return <table>      
         {this.state.childNodes.map((childNode, i) => <TableRow key={i} node={childNode} onChange={this.handleChange}/>)}          
         </table>
     }
@@ -97,11 +90,11 @@ class TableRow extends React.Component {
         let tableRow = null;
         if(Array.isArray(this.props.node.childList)){
             let table = this.props.node.childList.map((childNode, i) => <TableRow key={i} node={childNode} onChange={this.handleValueChange}/>)
-            tableRow =<tr><td><table>{table}</table></td></tr>;     
+            let childCount = `{ ${this.props.node.childList.length} }`;
+            tableRow = <tr><td className="asd"><span>{childCount}</span><table>{table}</table></td></tr>;     
         }
         else{       
             tableRow = <tr>
-                <TableData node={this.state.node.type} />
                 <TableData node={this.state.node.property} />
                 <TableDataInput node={this.state.node.val} onChange={this.handleValueChange}/>
             </tr>
@@ -138,18 +131,24 @@ class TableDataInput extends React.Component {
         })
     }
     handleChange(e){
-          var val = e.target.value;
-          this.setState({
-              value : val
-          })
+        var val = e.target.value;
+        this.setState({
+            value : val
+        });
     }
     handleClick(){
-      this.onClick(this.state.value);   
+        this.onClick(this.state.value);   
     }
-       shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState) {
         return this.state.value !== nextState.value
     }
     render() {
-        return <td><input type="text" value={this.state.value} onChange={this.handleChange}/><input type="button" value="save" onClick={this.handleClick}/></td>
+        return <td>
+            <span className="editable-field hidden">
+                <input type="text" value={this.state.value} onChange={this.handleChange}/>
+                <input type="button" value="save" onClick={this.handleClick}/>
+            </span>
+            <span className="readable-field">{this.state.value}</span>
+        </td>
     }
 }

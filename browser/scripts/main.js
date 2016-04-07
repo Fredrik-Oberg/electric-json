@@ -1,9 +1,9 @@
 'use babel';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from '../views/list.jsx';
-import RawText from '../views/rawText.jsx';
-import InspectJson from '../views/inspect.jsx';
+import List from '../views/treeView/list.jsx';
+import RawText from '../views/editor/rawText.jsx';
+import InspectJson from '../views/inspector/inspect.jsx';
 ReactDOM.render(<div>
     <RawText/>
     </div>, document.getElementById('rawTextContainer'));

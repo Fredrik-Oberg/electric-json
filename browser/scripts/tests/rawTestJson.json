@@ -1,0 +1,129 @@
+{
+  "Flights": [
+    {
+      "FlightNumber": "102",
+      "Id": 6586,
+      "From": {
+        "Name": "BOB HOPE AIRPORT",
+        "Code": "BUR"
+      },
+      "To": {
+        "Name": "BUCHANAN FIELD AIRPORT",
+        "Code": "CCR"
+      },
+      "DepartureDateTime": "2016-04-20T08:30:00",
+      "ArrivalDateTime": "2016-04-20T09:40:00",
+      "LowestFareId": 2,
+      "Cabin": "",
+      "LowestPrice": 300.0,
+      "Fares": [
+        {
+          "Discount": 0.0,
+          "FareBasis": "YREF",
+          "Name": "Regular Seat Refundable",
+          "Id": 2,
+          "Price": 300.0,
+          "Code": "Y",
+          "Adult": null,
+          "Child": null,
+          "Infant": null,
+          "PriceWithoutTax": 300.0,
+          "SeatCount": 9
+        }
+      ],
+      "Legs": [
+        {
+          "Id": 6186,
+          "DepartureDate": "2016-04-20T08:30:00",
+          "FlightTime": 70
+        }
+      ],
+      "Key": "6586:4/20/2016 8:30:00 AM",
+      "LowestPriceWithoutTax": 300.0
+    },
+    {
+      "FlightNumber": "104",
+      "Id": 6588,
+      "From": {
+        "Name": "BOB HOPE AIRPORT",
+        "Code": "BUR"
+      },
+      "To": {
+        "Name": "BUCHANAN FIELD AIRPORT",
+        "Code": "CCR"
+      },
+      "DepartureDateTime": "2016-04-20T14:30:00",
+      "ArrivalDateTime": "2016-04-20T15:40:00",
+      "LowestFareId": 3,
+      "Cabin": "",
+      "LowestPrice": 250.0,
+      "Fares": [
+        {
+          "Discount": 0.0,
+          "FareBasis": "TENR",
+          "Name": "Regular Seat",
+          "Id": 3,
+          "Price": 250.0,
+          "Code": "TE",
+          "Adult": null,
+          "Child": null,
+          "Infant": null,
+          "PriceWithoutTax": 250.0,
+          "SeatCount": 9
+        }
+      ],
+      "Legs": [
+        {
+          "Id": 6188,
+          "DepartureDate": "2016-04-20T14:30:00",
+          "FlightTime": 70
+        }
+      ],
+      "Key": "6588:4/20/2016 2:30:00 PM",
+      "LowestPriceWithoutTax": 250.0
+    },
+    {
+      "FlightNumber": "106",
+      "Id": 6590,
+      "From": {
+        "Name": "BOB HOPE AIRPORT",
+        "Code": "BUR"
+      },
+      "To": {
+        "Name": "BUCHANAN FIELD AIRPORT",
+        "Code": "CCR"
+      },
+      "DepartureDateTime": "2016-04-20T17:30:00",
+      "ArrivalDateTime": "2016-04-20T18:40:00",
+      "LowestFareId": 5,
+      "Cabin": "",
+      "LowestPrice": 250.0,
+      "Fares": [
+        {
+          "Discount": 0.0,
+          "FareBasis": "TENR",
+          "Name": "Regular Seat",
+          "Id": 5,
+          "Price": 250.0,
+          "Code": "TE",
+          "Adult": null,
+          "Child": null,
+          "Infant": null,
+          "PriceWithoutTax": 250.0,
+          "SeatCount": 9
+        }
+      ],
+      "Legs": [
+        {
+          "Id": 6190,
+          "DepartureDate": "2016-04-20T17:30:00",
+          "FlightTime": 70
+        }
+      ],
+      "Key": "6590:4/20/2016 5:30:00 PM",
+      "LowestPriceWithoutTax": 250.0
+    }
+  ]
+}
+
+

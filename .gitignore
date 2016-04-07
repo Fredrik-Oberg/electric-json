@@ -29,3 +29,4 @@ obj/
 .idea/
 bin/
 electric-json-win32-x64/
+dist/

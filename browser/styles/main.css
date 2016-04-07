@@ -1,8 +1,10 @@
+@import "font-awesome.min.css";
 body {
-  color: #7d868c;
+  color: #5B2E57;
   background-color: #25282e;
   font-family: 'Lucida Grande', 'Segoe UI', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: bold;
 }
 #mainContainer {
   display: flex;
@@ -11,50 +13,25 @@ body {
 .container {
   height: 500px;
   width: 50%;
-  border: 3px solid #b3b6b7;
+  border: 3px solid #7396A0;
 }
 #rawTextContainer textarea {
   width: 100%;
   min-height: 500px;
-  -webkit-box-sizing: border-box;
-  /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;
-  /* Firefox, other Gecko */
   box-sizing: border-box;
-  /* Opera/IE 8+ */
   font-family: Tahoma, sans-serif;
-  background-color: #f7f3e3;
+  background-color: #B1C8C2;
   resize: none;
-}
-::-webkit-scrollbar {
-  color: black;
-}
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track-piece {
-  background-color: #3e885b;
-}
-::-webkit-scrollbar-thumb:vertical {
-  height: 30px;
-  background-color: #d36135;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #000000;
-  -webkit-border-radius: 1ex;
 }
 #parsedJsonContainer {
   overflow-y: auto;
-  background-color: #f7f3e3;
-}
-#parsedJsonContainer .main-node {
-  margin-left: 0.8rem;
+  background-color: #B1C8C2;
 }
 #parsedJsonContainer .json-list-item {
   transition: all 0.25s ease-out;
 }
 #parsedJsonContainer .json-list-item .json-list {
-  border-left: 1px dotted black;
+  border-left: 1px dotted #7396A0;
   padding-left: 0.8rem;
   overflow: hidden;
 }
@@ -62,14 +39,17 @@ body {
   margin-top: 0px;
   margin-left: 0px;
 }
+#parsedJsonContainer .json-list-item .json-list.hover {
+  background: #97B1B9;
+}
 #parsedJsonContainer .json-list-item .array {
-  color: #3e885b;
+  color: #5B2E57;
 }
 #parsedJsonContainer .json-list-item .property {
-  color: #111;
+  color: #383838;
 }
 #parsedJsonContainer .json-list-item .object {
-  color: #d36135;
+  color: #5B5693;
 }
 #parsedJsonContainer .toggle-section {
   cursor: pointer;
@@ -81,32 +61,43 @@ body {
 #parsedJsonContainer .toggle-section.down + .json-list-item * {
   height: 0px;
 }
-#parsedJsonContainer .toggler {
+#parsedJsonContainer .toggle-section .fa {
   cursor: pointer;
   margin-right: 5px;
-  margin-left: -15px;
-  font-size: 1.3em;
-  font-weight: bolder;
-  color: #716767;
+  margin-left: -10px;
+  font-size: 1em;
+  color: #9C4E3F;
 }
 #jsonInspectContainer {
-  margin-top: 10px;
-  background-color: #2F2F2F;
-  color: #fff;
+  background-color: #B1C8C2;
 }
-#jsonInspectContainer table,
 #jsonInspectContainer tbody {
-  margin-left: 20px;
-  border-collapse: inherit;
-  border-style: double;
+  margin-left: 5px;
   border-width: 1px;
   border-spacing: 2px;
-  border-style: outset;
-  border-collapse: separate;
+  border-style: none;
+  border-collapse: collapse;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
 }
-#jsonInspectContainer table td,
 #jsonInspectContainer tbody td {
   border-width: 1px;
   padding: 1px;
-  border-style: inset;
+  border-style: none;
+}
+.hidden {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #9B6A77;
+}
+::-webkit-scrollbar-thumb:vertical {
+  height: 10px;
+  background-color: #5B2E57;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 1ex;
 }

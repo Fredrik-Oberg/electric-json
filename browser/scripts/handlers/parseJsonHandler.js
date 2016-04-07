@@ -1,4 +1,4 @@
-import JsonLint from "jsonLint";
+import JsonLint from "jsonlint";
 import { JsonConstants as Constants} from '../../scripts/constants/constants';
 import TestJson from '../../scripts/tests/testJson';
 
@@ -52,9 +52,10 @@ const parse = json => {
 };
 
 export function parseJson (rawText){
-    // var lintedJson = JsonLint.parse(rawText);
-    var testJsonString = TestJson.testJson;
-    var lintedJson = JsonLint.parse(testJsonString);
+    var lintedJson = JsonLint.parse(rawText);
+    //TODO get the text, then prettyPrint it by JSON.stringify(this.testObject, null, 1);
+    // var testJsonString = TestJson.testJson;
+    // var lintedJson = JsonLint.parse(testJsonString);
     var parsedJson = parse(lintedJson)
     console.log(parsedJson);
     return parsedJson;
