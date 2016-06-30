@@ -2,12 +2,12 @@
   "name": "electric-json",
   "version": "0.1.0",
   "main": "app/bootstrapper.js",
-    "scripts": {
+  "scripts": {
     "build-windows": "electron-packager . ElectricJson --version=0.37.2 --overwrite --out=dist --ignore='^/dist$' --prune --platform=win32 --arch=x64"
   },
   "dependencies": {
     "flux": "2.1.1",
-    "babel-register": "^6.3.13",    
+    "babel-register": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "immutable": "^3.7.6",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "electron-packager": "^5.2.1",
     "electron-prebuilt": "^0.36.0",
+    "electron-react-devtools": "^0.2.3",
     "event-emitter": "^0.3.4",
     "gulp": "^3.9.1",
     "gulp-debug": "^2.1.2",
@@ -27,6 +28,6 @@
     "gulp-less": "^3.0.5",
     "gulp-livereload": "^3.8.1",
     "gulp-plumber": "^1.1.0",
-    "path": "^0.12.7"    
+    "path": "^0.12.7"
   }
 }

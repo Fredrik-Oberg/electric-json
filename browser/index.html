@@ -4,12 +4,17 @@
     <head>
         <title>Electric Json</title>
         <script>
+            require('electron-react-devtools').inject();
             // install babel hooks in the renderer process
             require('./scripts/loader');
         </script>
         <link href="styles/main.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
+        //TODO Buttons
+        //TODO new design of inspector
+        //TODO Line numbers
+        
         <div id="mainContainer">
             <div id="textEditor" class="container"></div>
             <div id="treeView" class="container"></div>
