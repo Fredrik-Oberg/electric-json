@@ -10,9 +10,10 @@ export default class MainList extends React.Component {
         this.state = {
             results : [],
         };
-        this.handleChange = this.handleChange.bind(this);         
+        this.handleChange = this.handleChange.bind(this);  
+        this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleMouseOut = this.handleMouseOut.bind(this);
     }
- 
     handleChange(e) {
         var json = JsonStore.getParsedJson();    
         this.setState({results : json});
@@ -20,11 +21,31 @@ export default class MainList extends React.Component {
     componentDidMount() {
         JsonStore.addChangeListener(this.handleChange);
     }
+    handleMouseOver(e){
+        e.stopPropagation();     
+        this.setState({hover : true});
+    }
+    handleMouseOut(e){
+        e.stopPropagation();        
+        this.setState({hover : false});
+    }
+    getClassNames(){
+        let classNames = "main-node ";
+        if(this.state.hover){
+            classNames += "hover";
+        }
+        return classNames; 
+    }
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state.results !== nextState.results
+        let resultChange = this.state.results !== nextState.results
+        let hoverChange = this.state.hover !== nextState.hover;
+        return resultChange || hoverChange;
     }
     render() {
-        return <div className="main-node"><ListItem key={0} data={this.state.results} /></div>
+        return <div className={this.getClassNames()}
+        onMouseOver={this.handleMouseOver} 
+        onMouseOut={this.handleMouseOut}>
+        <ListItem key={0} data={this.state.results} /></div>
     }
 }
   

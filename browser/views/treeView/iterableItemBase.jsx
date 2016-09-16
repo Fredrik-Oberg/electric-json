@@ -37,7 +37,6 @@ export default class IterableItemBase extends React.Component {
      handleMouseOut(e){
         e.stopPropagation();        
         this.setState({hover : false});
-        
     }
     getClassNames(type){
         let classNames =  type + " json-list ";

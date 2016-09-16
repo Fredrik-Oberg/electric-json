@@ -8,17 +8,36 @@ export default class TextEditor extends React.Component {
         super(props);
         this.state = {rawText: JsonStore.getRawText()};
         this.handleChange = this.handleChange.bind(this);
+        this.handleMouseOver = this.handleMouseOver.bind(this);
+        this.handleMouseOut = this.handleMouseOut.bind(this);
+    }
+    handleMouseOver(e){
+        e.stopPropagation();     
+        this.setState({hover : true});
+    }
+     handleMouseOut(e){
+        e.stopPropagation();        
+        this.setState({hover : false});
     }
     handleChange(e) {
         addRawText(e.target.value);   
         //TODO Get the parsedJson    
     }
-    
+    getClassNames(){
+        let classNames = "";
+        if(this.state.hover){
+            classNames += "hover";
+        }
+        return classNames; 
+    }
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state.rawText !== nextState.rawText
+        let textChange = this.state.rawText !== nextState.rawText
+        let hoverChange = this.state.hover !== nextState.hover;
+        return textChange || hoverChange;
     }
     render() {
-        return <textarea onChange={this.handleChange}
+        return <textarea className={this.getClassNames()} 
+        onChange={this.handleChange} onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut}
             defaultValue={this.state.rawText}></textarea>   
     }
 }

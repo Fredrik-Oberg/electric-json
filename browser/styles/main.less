@@ -15,23 +15,27 @@ body {
 }
 .container {
     height: @container-min-height;
-    width: 50%;
+    width: 50%; 
     border: 3px solid @border;
+    
 }
 #textEditor {
     textarea {
         width: 100%;
         min-height: @container-min-height;
         box-sizing: border-box;
-        font-family: Tahoma, sans-serif;
         background-color: @background;
         resize: none;
-   }
+        font-size: 0.7rem;
+        .toggleVerticalScroll();        
+    }
 }
+
 #treeView{
     overflow-y: auto;
-    background-color: @background;
     
+    background-color: @background;
+    .toggleVerticalScroll();
     .main-node{
     }
     
@@ -116,16 +120,24 @@ body {
 // ::-webkit-scrollbar-corner       { /* 6 */ }
 // ::-webkit-resizer                { /* 7 */ }
 ::-webkit-scrollbar {
-    width: 10px;
+    // width: 10px;
 }
 ::-webkit-scrollbar-track-piece  {
-    background-color: @scroll-background;
+    // background-color: @scroll-background;
 }
 ::-webkit-scrollbar-thumb:vertical {
-    height: 10px;
-    background-color: @scroll-scroller;
+    // height: 10px;
+    // background-color: @scroll-scroller;
 }
 ::-webkit-scrollbar-thumb { 
-    border-radius: 1ex; 
+    // border-radius: 1ex; 
 }
 
+
+
+.toggleVerticalScroll(){
+    overflow-y:hidden; 
+    &.hover{
+        overflow-y:auto; 
+    }
+}

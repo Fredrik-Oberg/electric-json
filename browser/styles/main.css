@@ -1,8 +1,8 @@
 @import "font-awesome.min.css";
 body {
   color: #5B2E57;
-  background-color: #25282e;
-  font-family: 'Lucida Grande', 'Segoe UI', sans-serif;
+  background-color: #FFFFFF;
+  font-family: 'Consolas', 'Monospace', sans-serif;
   font-size: 12px;
   font-weight: bold;
 }
@@ -13,25 +13,33 @@ body {
 .container {
   height: 500px;
   width: 50%;
-  border: 3px solid #7396A0;
+  border: 3px solid #EEE;
 }
 #textEditor textarea {
   width: 100%;
   min-height: 500px;
   box-sizing: border-box;
-  font-family: Tahoma, sans-serif;
-  background-color: #B1C8C2;
+  background-color: #FFFFFF;
   resize: none;
+  font-size: 0.7rem;
+  overflow-y: hidden;
+}
+#textEditor textarea.hover {
+  overflow-y: auto;
 }
 #treeView {
   overflow-y: auto;
-  background-color: #B1C8C2;
+  background-color: #FFFFFF;
+  overflow-y: hidden;
+}
+#treeView.hover {
+  overflow-y: auto;
 }
 #treeView .json-list-item {
   transition: all 0.25s ease-out;
 }
 #treeView .json-list-item .json-list {
-  border-left: 1px dotted #7396A0;
+  border-left: 1px dotted #EEE;
   padding-left: 0.8rem;
   overflow: hidden;
 }
@@ -69,7 +77,7 @@ body {
   color: #9C4E3F;
 }
 #inspectorContainer {
-  background-color: #B1C8C2;
+  background-color: #FFFFFF;
 }
 #inspectorContainer tbody {
   margin-left: 5px;
@@ -87,17 +95,4 @@ body {
 }
 .hidden {
   display: none;
-}
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track-piece {
-  background-color: #9B6A77;
-}
-::-webkit-scrollbar-thumb:vertical {
-  height: 10px;
-  background-color: #5B2E57;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 1ex;
 }
